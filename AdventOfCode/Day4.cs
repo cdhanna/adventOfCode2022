@@ -26,7 +26,7 @@ public class Day4
     
     
     [TestCase(sample, 2)]
-    [TestCase(input, 2)]
+    // [TestCase(input, 2)]
     public void Part1(string input, int expected)
     {
         Range GetRange(string assignmentStr)
@@ -57,7 +57,7 @@ public class Day4
     }
     
     [TestCase(sample, 4)]
-    [TestCase(input, 2)]
+    // [TestCase(input, 2)]
     public void Part2(string input, int expected)
     {
         Range GetRange(string assignmentStr)

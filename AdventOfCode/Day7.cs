@@ -36,7 +36,7 @@ public class Day7
     }
     
     [TestCase(sample, 95437)]
-    [TestCase(input, 95437)]
+    // [TestCase(input, 95437)]
     public void Part1(string input, int expected)
     {
         var lines = input.Split("\n");
