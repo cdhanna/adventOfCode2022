@@ -4,22 +4,6 @@ namespace AdventOfCode;
 
 public class Day9
 {
-    [DebuggerDisplay("({x},{y})")]
-    public struct Vec
-    {
-        public int x, y;
-        public static Vec Zero = new Vec { x = 0, y = 0 };
-        public static Vec Right = new Vec { x = 1, y = 0 };
-        public static Vec Left = new Vec { x = -1, y = 0 };
-        public static Vec Up = new Vec { x = 0, y = -1 };
-        public static Vec Down = new Vec { x = 0, y = 1 };
-
-        public static Vec operator +(Vec a, Vec b)
-            => new Vec { x = a.x + b.x, y = a.y + b.y };
-        public static Vec operator -(Vec a, Vec b)
-            => new Vec { x = a.x - b.x, y = a.y - b.y };
-    }
-
     [DebuggerDisplay("{steps}x({dir.x},{dir.y})")]
     public struct Instruction
     {
@@ -2170,4 +2154,26 @@ L 8
 R 15
 D 19";
     #endregion
+}
+
+[DebuggerDisplay("({x},{y})")]
+public struct Vec
+{
+    public int x, y;
+    public static Vec Zero = new Vec { x = 0, y = 0 };
+    public static Vec Right = new Vec { x = 1, y = 0 };
+    public static Vec Left = new Vec { x = -1, y = 0 };
+    public static Vec Up = new Vec { x = 0, y = -1 };
+    public static Vec Down = new Vec { x = 0, y = 1 };
+
+    public static Vec operator +(Vec a, Vec b)
+        => new Vec { x = a.x + b.x, y = a.y + b.y };
+    public static Vec operator -(Vec a, Vec b)
+        => new Vec { x = a.x - b.x, y = a.y - b.y };
+
+    public static bool operator ==(Vec a, Vec b)
+        => a.x == b.x && a.y == b.y;
+    
+    public static bool operator !=(Vec a, Vec b)
+        => a.x != b.x || a.y != b.y;
 }
