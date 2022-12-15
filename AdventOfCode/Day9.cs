@@ -2159,6 +2159,21 @@ D 19";
 [DebuggerDisplay("({x},{y})")]
 public struct Vec
 {
+    public bool Equals(Vec other)
+    {
+        return x == other.x && y == other.y;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Vec other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(x, y);
+    }
+
     public int x, y;
     public static Vec Zero = new Vec { x = 0, y = 0 };
     public static Vec Right = new Vec { x = 1, y = 0 };
@@ -2166,6 +2181,17 @@ public struct Vec
     public static Vec Up = new Vec { x = 0, y = -1 };
     public static Vec Down = new Vec { x = 0, y = 1 };
 
+    public Vec()
+    {
+        x = 0;
+        y = 0;
+    }
+
+    public Vec(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
     public Vec Normalize() => new Vec { x = Math.Sign(x), y = Math.Sign(y) };
 
     public static Vec operator +(Vec a, Vec b)
