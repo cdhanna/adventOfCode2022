@@ -2166,10 +2166,14 @@ public struct Vec
     public static Vec Up = new Vec { x = 0, y = -1 };
     public static Vec Down = new Vec { x = 0, y = 1 };
 
+    public Vec Normalize() => new Vec { x = Math.Sign(x), y = Math.Sign(y) };
+
     public static Vec operator +(Vec a, Vec b)
         => new Vec { x = a.x + b.x, y = a.y + b.y };
     public static Vec operator -(Vec a, Vec b)
         => new Vec { x = a.x - b.x, y = a.y - b.y };
+    public static Vec operator *(Vec a, int s)
+        => new Vec { x = a.x *s, y = a.y * s};
 
     public static bool operator ==(Vec a, Vec b)
         => a.x == b.x && a.y == b.y;
